@@ -58,7 +58,7 @@ define(<<AC_CV_NAME>>, translit(ac_cv_sizeof_$1, [ *], [_p]))dnl
 changequote([, ])dnl
 AC_MSG_CHECKING(size of $1)
 AC_CACHE_VAL(AC_CV_NAME,
-[for ac_size in 4 8 1 2 16 $2 ; do # List sizes in rough order of prevalence.
+[for ac_size in 4 8 1 2 16 $3 ; do # List sizes in rough order of prevalence.
   AC_TRY_COMPILE([#include "confdefs.h"
 #include <sys/types.h>
 ], [switch (0) case 0: case (sizeof ($1) == $ac_size):;], AC_CV_NAME=$ac_size)
@@ -113,7 +113,7 @@ AC_DEFUN(AC_CHECK_TYPEDEF,
  AC_CHECK_TYPEDEF_($1,$2,AC_MSG_RESULT(yes),AC_MSG_RESULT(no))dnl
 ])
 
-dnl @synopsis AC_NEED_STDINT_H [( HEADER-TO-GENERATE [, HEDERS-TO-CHECK])]
+dnl @synopsis AC_NEED_STDINT_H [( HEADER-TO-GENERATE [, HEADERS-TO-CHECK])]
 dnl
 dnl the "ISO C9X: 7.18 Integer types <stdint.h>" section requires the
 dnl existence of an include file <stdint.h> that defines a set of 
@@ -146,16 +146,16 @@ dnl Remember, if the system already had a valid <stdint.h>, the generated
 dnl file will include it directly. No need for fuzzy HAVE_STDINT_H things...
 dnl
 dnl @version $Id$
-dnl @author  Guido Draheim <guidod@gmx.de>       STATUS: used on new platforms
+dnl @author  Guido Draheim <guidod@gmx.de> STATUS: used on new platforms
 
 AC_DEFUN([AC_NEED_STDINT_H],
 [AC_MSG_CHECKING([for stdint-types])
  ac_cv_header_stdint="no-file"
  ac_cv_header_stdint_u="no-file"
- for i in $1 inttypes.h sys/inttypes.h sys/int_types.h stdint.h ; do
+ for i in $2 inttypes.h sys/inttypes.h sys/int_types.h stdint.h ; do
    AC_CHECK_TYPEDEF_(uint32_t, $i, [ac_cv_header_stdint=$i])
  done
- for i in $1 sys/types.h inttypes.h sys/inttypes.h sys/int_types.h ; do
+ for i in $2 sys/types.h inttypes.h sys/inttypes.h sys/int_types.h ; do
    AC_CHECK_TYPEDEF_(u_int32_t, $i, [ac_cv_header_stdint_u=$i])
  done
  dnl debugging: __AC_MSG( !$ac_cv_header_stdint!$ac_cv_header_stdint_u! ...)
@@ -194,8 +194,8 @@ EOF
    ac_cv_header_stdint_generated=true
  else
    AC_MSG_RESULT(not found, need to guess the types now... )
-   AC_COMPILE_CHECK_SIZEOF(long, 32)
-   AC_COMPILE_CHECK_SIZEOF(void*, 32)
+   AC_COMPILE_CHECK_SIZEOF(long, $2, 32)
+   AC_COMPILE_CHECK_SIZEOF(void*, $2, 32)
    AC_MSG_RESULT( creating $ac_stdint_h - using detected values for sizeof long and sizeof void* )
    cat >$ac_stdint_h <<EOF
 
@@ -256,11 +256,11 @@ typedef uint8_t   uint_least8_t;
 typedef uint16_t  uint_least16_t;
 typedef uint32_t  uint_least32_t;
 
-typedef  int8_t    int_fast8_t; 
+typedef  int8_t    int_fast8_t;	
 typedef  int32_t   int_fast16_t;
 typedef  int32_t   int_fast32_t;
 
-typedef uint8_t   uint_fast8_t; 
+typedef uint8_t   uint_fast8_t;	
 typedef uint32_t  uint_fast16_t;
 typedef uint32_t  uint_fast32_t;
 
