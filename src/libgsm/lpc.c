@@ -141,34 +141,6 @@ static void Autocorrelation (
 	}
 }
 
-#if defined(USE_FLOAT_MUL) && defined(FAST)
-
-static void Fast_Autocorrelation (
-	word * s,		/* [0..159]	IN/OUT  */
- 	longword * L_ACF)	/* [0..8]	OUT     */
-{
-	register int	k, i;
-	float f_L_ACF[9];
-	float scale;
-
-	float          s_f[160];
-	register float *sf = s_f;
-
-	for (i = 0; i < 160; ++i) sf[i] = s[i];
-	for (k = 0; k <= 8; k++) {
-		register float L_temp2 = 0;
-		register float *sfl = sf - k;
-		for (i = k; i < 160; ++i) L_temp2 += sf[i] * sfl[i];
-		f_L_ACF[k] = L_temp2;
-	}
-	scale = MAX_LONGWORD / f_L_ACF[0];
-
-	for (k = 0; k <= 8; k++) {
-		L_ACF[k] = f_L_ACF[k] * scale;
-	}
-}
-#endif	/* defined (USE_FLOAT_MUL) && defined (FAST) */
-
 /* 4.2.5 */
 
 static void Reflection_coefficients (
@@ -327,10 +299,6 @@ void Gsm_LPC_Analysis (
 {
 	longword	L_ACF[9];
 
-#if defined(USE_FLOAT_MUL) && defined(FAST)
-	if (S->fast) Fast_Autocorrelation (s,	  L_ACF );
-	else
-#endif
 	Autocorrelation			  (s,	  L_ACF	);
 	Reflection_coefficients		  (L_ACF, LARc	);
 	Transformation_to_Log_Area_Ratios (LARc);
