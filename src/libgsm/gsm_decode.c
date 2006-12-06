@@ -14,7 +14,6 @@ int gsm_decode (gsm s, gsm_byte * c, gsm_signal * target)
 {
 	word  	LARc[8], Nc[4], Mc[4], bc[4], xmaxc[4], xmc[13*4];
 
-#ifdef WAV49
 	if (s->wav_fmt) {
 
 		uword sr = 0;
@@ -247,7 +246,6 @@ int gsm_decode (gsm s, gsm_byte * c, gsm_signal * target)
 		}
 	}
 	else
-#endif
 	{
 		/* GSM_MAGIC  = (*c >> 4) & 0xF; */
 

@@ -26,8 +26,6 @@ typedef gsm_byte 		gsm_frame[33];		/* 33 * 8 bits	 */
 #define	GSM_MAJOR		1
 
 #define	GSM_OPT_VERBOSE		1
-#define	GSM_OPT_FAST		2
-#define	GSM_OPT_LTP_CUT		3
 #define	GSM_OPT_WAV49		4
 #define	GSM_OPT_FRAME_INDEX	5
 #define	GSM_OPT_FRAME_CHAIN	6
