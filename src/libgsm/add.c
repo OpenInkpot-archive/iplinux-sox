@@ -4,8 +4,6 @@
  * details.  THERE IS ABSOLUTELY NO WARRANTY FOR THIS SOFTWARE.
  */
 
-/* $Header$ */
-
 /*
  *  See private.h for the more commonly used macro versions.
  */

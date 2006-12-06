@@ -4,8 +4,6 @@
  * details.  THERE IS ABSOLUTELY NO WARRANTY FOR THIS SOFTWARE.
  */
 
-static char const	ident[] = "$Header$";
-
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>

@@ -4,8 +4,6 @@
  * details.  THERE IS ABSOLUTELY NO WARRANTY FOR THIS SOFTWARE.
  */
 
-/*$Header$*/
-
 #ifndef	GSM_H
 #define	GSM_H
 
