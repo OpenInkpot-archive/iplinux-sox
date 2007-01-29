@@ -4,6 +4,8 @@
  * details.  THERE IS ABSOLUTELY NO WARRANTY FOR THIS SOFTWARE.
  */
 
+/* $Header$ */
+
 #include "private.h"
 #include "gsm.h"
 
@@ -99,6 +101,8 @@ void gsm_encode (gsm s, gsm_signal * source, gsm_byte * c)
 		xmc[50]		3
 		xmc[51]		3
 	*/
+
+#ifdef WAV49
 
 	if (s->wav_fmt) {
 		s->frame_index = !s->frame_index;
@@ -338,6 +342,7 @@ void gsm_encode (gsm s, gsm_signal * source, gsm_byte * c)
 
 	else
 
+#endif	/* WAV49 */
 	{
 
 		*c++ =   ((GSM_MAGIC & 0xF) << 4)		/* 1 */

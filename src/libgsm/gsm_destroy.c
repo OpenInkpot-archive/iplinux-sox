@@ -4,11 +4,13 @@
  * details.  THERE IS ABSOLUTELY NO WARRANTY FOR THIS SOFTWARE.
  */
 
+/* $Header$ */
+
 #include "gsm.h"
 
-#include <stdlib.h>
+#	include	<stdlib.h>
 
 void gsm_destroy (gsm S)
 {
-  free((char *)S);
+	if (S) free((char *)S);
 }

@@ -4,6 +4,8 @@
  * details.  THERE IS ABSOLUTELY NO WARRANTY FOR THIS SOFTWARE.
  */
 
+static char const	ident[] = "$Header$";
+
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -13,10 +15,13 @@
 
 gsm gsm_create ()
 {
-	gsm r = (gsm)calloc(1, sizeof(struct gsm_state));
+	gsm  r;
 
-        if (r)
-          r->nrp = 40;
+	r = (gsm)malloc(sizeof(struct gsm_state));
+	if (!r) return r;
+
+	memset((char *)r, 0, sizeof(*r));
+	r->nrp = 40;
 
 	return r;
 }

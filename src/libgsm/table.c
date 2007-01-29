@@ -4,6 +4,8 @@
  * details.  THERE IS ABSOLUTELY NO WARRANTY FOR THIS SOFTWARE.
  */
 
+/* $Header$ */
+
 /*  Most of these tables are inlined at their point of use.
  */
 
