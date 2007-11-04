@@ -102,7 +102,7 @@ extern word	gsm_asr  	(word a, int n);
 		   >= MAX_LONGWORD ? MIN_LONGWORD : -(longword)utmp-2 )   \
 	: ((b) <= 0 ? (a) + (b)   \
 	          : (utmp = (ulongword)(a) + (ulongword)(b)) >= MAX_LONGWORD \
-		    ? MAX_LONGWORD : utmp))
+		    ? MAX_LONGWORD : (longword)utmp))
 
 /*
  * # define GSM_ADD(a, b)	\

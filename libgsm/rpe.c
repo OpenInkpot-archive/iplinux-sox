@@ -458,6 +458,7 @@ void Gsm_RPE_Encoding (
 	word	xM[13], xMp[13];
 	word	mant, exp;
 
+  (void)S; /* Denotes intentionally unused */
 	Weighting_filter(e, x);
 	RPE_grid_selection(x, xM, Mc);
 
@@ -480,6 +481,7 @@ void Gsm_RPE_Decoding (
 	word	exp, mant;
 	word	xMp[ 13 ];
 
+  (void)S; /* Denotes intentionally unused */
 	APCM_quantization_xmaxc_to_exp_mant( xmaxcr, &exp, &mant );
 	APCM_inverse_quantization( xMcr, mant, exp, xMp );
 	RPE_grid_positioning( Mcr, xMp, erp );

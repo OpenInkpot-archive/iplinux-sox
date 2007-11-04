@@ -875,6 +875,8 @@ void Gsm_Long_Term_Predictor ( 	/* 4x for 160 samples */
 	word	* bc	/* gain factor			OUT	*/
 )
 {
+  (void)S; /* Denotes intentionally unused */
+
 	assert( d  ); assert( dp ); assert( e  );
 	assert( dpp); assert( Nc ); assert( bc );
 
