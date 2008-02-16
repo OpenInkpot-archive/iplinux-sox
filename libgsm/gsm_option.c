@@ -62,6 +62,7 @@ int gsm_option (gsm r, int opt, int * val)
 		break;
 
 	default:
+                (void)r, (void)val;
 		break;
 	}
 	return result;
