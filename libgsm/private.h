@@ -1,3 +1,4 @@
+#include "aliases.h"
 /*
  * Copyright 1992 by Jutta Degener and Carsten Bormann, Technische
  * Universitaet Berlin.  See the accompanying file "COPYRIGHT" for
