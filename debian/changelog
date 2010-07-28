@@ -1,3 +1,9 @@
+sox (14.3.0-1.3ip) zelazny; urgency=low
+
+  * Bump version before real upload
+
+ -- Alexander V. Nikolaev <avn@daemon.hole.ru>  Thu, 29 Jul 2010 00:05:20 +0300
+
 sox (14.3.0-1.2ip) zelazny; urgency=low
 
   * Upload to IPLinux
