@@ -1,3 +1,9 @@
+sox (14.3.0-1.4ip) zelazny; urgency=low
+
+  * Missed build dep on  libfakeltdl-dev
+
+ -- Alexander V. Nikolaev <avn@daemon.hole.ru>  Tue, 05 Oct 2010 22:39:25 +0300
+
 sox (14.3.0-1.3ip) zelazny; urgency=low
 
   * Bump version before real upload
